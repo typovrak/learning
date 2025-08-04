@@ -1,9 +1,13 @@
-<!DOCTYPE html>
-<html>
-<body>
+{% extends "base.html" %}
 
-<h1>Hello World!</h1>
-<p>Welcome to my first Django project!</p>
+{% block title %}My amazing blog{% endblock %}
 
-</body>
-</html>
+{% block content %}
+{% for entry in blog_entries %}
+    <h2>{{ entry.title }}</h2>
+    <p>{{ entry.body }}</p>
+{% endfor %}
+
+{% include "link.html" with href="https://github.com/typovrak" title="typovrak website" %}
+{% endblock %}
+
